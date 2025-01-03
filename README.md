@@ -40,6 +40,7 @@ make full2 (for example)
 | **If you have CHATGPT API KEY** |                              |
 | `Control + E`        | Generate new usage example of the word  |
 | `Control + G`        | Generate new GRE-like question          |
+| `Control + Space`    | Generate word root                      | 
 
 ## Contribution
 Create new branch and pull requests if you want to contribute to this project
