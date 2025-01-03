@@ -8,14 +8,14 @@ Building vocabulary is essential part of test preparation, which take a lot of t
 
 __Demo__
 <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
-    <img src="./asset/front.png" alt="Front" title="Front" width="300" />
-    <img src="./asset/back.png" alt="Back" title="Back" width="300" />
+    <img src="./assets/front.png" alt="Front" title="Front" width="300" />
+    <img src="./assets/back.png" alt="Back" title="Back" width="300" />
 </div>
 
 __ChatGPT generated question and example__
 <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
-    <img src="./asset/generated_example.png" alt="Generated example" title="Front" width="300" />
-    <img src="./asset/generated_question.png" alt="Generated question" title="Back" width="300" />
+    <img src="./assets/generated_example.png" alt="Generated example" title="Front" width="300" />
+    <img src="./assets/generated_question.png" alt="Generated question" title="Back" width="300" />
 </div>
 
 
