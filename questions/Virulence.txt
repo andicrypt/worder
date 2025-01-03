@@ -1,0 +1,14 @@
+**Question:**
+
+In the context of epidemiology, understanding the *virulence* of a pathogen is crucial because it helps determine:
+
+A) The duration of the disease.
+
+B) The severity or harmfulness of the disease or poison.
+
+C) The likelihood of recovery without treatment.
+
+D) The geographical spread of the disease.
+
+**Correct Answer:** B) The severity or harmfulness of the disease or poison.
+

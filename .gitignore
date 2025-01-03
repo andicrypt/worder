@@ -173,7 +173,3 @@ cython_debug/
 .env
 
 venv
-
-questions
-examples
-resources

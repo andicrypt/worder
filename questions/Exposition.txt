@@ -1,0 +1,9 @@
+Question: In the academic conference, the professor's __________ on quantum mechanics was praised for its clarity and depth, providing the attendees with a thorough understanding of the complex subject.
+
+A) fabrication  
+B) exposition  
+C) obfuscation  
+D) conjecture  
+
+Correct Answer: B) exposition
+

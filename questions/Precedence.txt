@@ -1,0 +1,9 @@
+Question: In decision-making processes where multiple tasks are involved, it is crucial to determine which tasks take __________ to ensure that the most critical objectives are met first.
+
+A) Ambiguity  
+B) Precedence  
+C) Detriment  
+D) Indifference  
+
+Correct Answer: B) Precedence
+

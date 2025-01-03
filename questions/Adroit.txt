@@ -1,0 +1,13 @@
+Question: 
+
+In the context of the following sentence, what does the word "adroit" most nearly mean?
+
+Despite the complexity of the task, the engineer was able to solve the problem with an adroit use of available resources.
+
+A) Clumsy  
+B) Skillful  
+C) Uninterested  
+D) Lazy  
+
+Correct Answer: B) Skillful
+

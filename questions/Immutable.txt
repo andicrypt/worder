@@ -1,0 +1,11 @@
+Question: 
+
+In the context of programming languages, some data structures are described as "immutable." What does "immutable" most likely mean in this context?
+
+A) Flexible and adaptable  
+B) Resistant to modification  
+C) Temporary and transient  
+D) Easily alterable  
+
+Correct Answer: B) Resistant to modification
+
