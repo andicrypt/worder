@@ -1,7 +1,10 @@
 # WORDER
 Open-source flashcard source code, suitable for GRE test takers.
 
-Building vocabulary is essential part of test preparation, which take a lot of time. Understanding this painpoint, this open-source project aims to ameliorate this process by introducing digital flashcard written by Python. Although, this source currently only supports for preparing [600 GRE words](https://www.youtube.com/watch?v=ztPuECxARHc&t=976s) organized by **The Test Tutor**, I urge community to make contributions to broaden its usage to IELTS, TOEFL, GMAT or any standard testing.
+Building vocabulary is essential part of test preparation, which take a lot of time. Understanding this painpoint, this open-source project aims to ameliorate this process by introducing digital flashcard written by Python. This source currently only supports for preparing [600 GRE words](https://www.youtube.com/watch?v=ztPuECxARHc&t=976s) organized by **The Test Tutor**, feel free to make contributions to broaden its usage to IELTS, TOEFL, GMAT or any standard testing.
+
+
+
 
 __Demo__
 <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
@@ -16,5 +19,27 @@ __ChatGPT generated question and example__
 </div>
 
 
-# How to contribute
 
+## Setup
+Requirement: Python (3.12.3), Pip (24.3.1)
+```
+make setup
+source venv/bin/activate (For ubuntu only)
+make full2 (for example)
+```
+
+## Usage:
+| **Shortcut**         | **Action**                               |
+|-----------------------|------------------------------------------|
+| `Space`              | Flip the flashcard                      |
+| `Left`, `Right`      | Navigate between flashcards             |
+| `Control + Q`        | Show usage example of the word          |
+| `Control + Z`        | Show GRE-like question for the word     |
+| `Control + F`        | Focus on search flashcard based on text |
+| `Enter`              | Search flashcard                       |
+| **If you have CHATGPT API KEY** |                              |
+| `Control + E`        | Generate new usage example of the word  |
+| `Control + G`        | Generate new GRE-like question          |
+
+## Contribution
+Create new branch and pull requests if you want to contribute to this project

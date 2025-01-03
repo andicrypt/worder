@@ -1,7 +1,15 @@
-.PHONY: full2 full3 full4 full5 full6 full7 full8 full9
+.PHONY: setup full2 full3 full4 full5 full6 full7 full8 full9
 
 # Path to the Python script
 PYTHON_SCRIPT := python3 main.py
+
+setup:
+	@echo "Setting up the virtual environment..."
+	@if [ ! -d "venv" ]; then python3 -m venv venv; fi
+	@echo "Virtual environment created (if not already present)."
+	@. venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt
+	@echo "Environment setup complete. Use 'source venv/bin/activate' to activate the virtual environment."
+
 
 # Rules for each full dataset
 full2:
