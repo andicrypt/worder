@@ -28,7 +28,7 @@ source venv/bin/activate (For ubuntu only)
 make full2 (for example)
 ```
 
-## Usage:
+## Usages
 | **Shortcut**         | **Action**                               |
 |-----------------------|------------------------------------------|
 | `Space`              | Flip the flashcard                      |
