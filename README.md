@@ -38,7 +38,7 @@ make full2 (for example)
 | `Control + Z`        | Show GRE-like question for the word     |
 | `Control + F`        | Focus on search flashcard based on text |
 | `Enter`              | Search flashcard                        |
-| **If you want to choose different dataset                      |
+| **If you want to choose different dataset**                      |
 | `Control + P`         | Choose different dataset                |
 | **If you have CHATGPT API KEY** |                              |
 | `Control + L`        | Enter OpenAI API KEY                    |
