@@ -31,7 +31,7 @@ chmod +x ./build_executable.sh
 ./build_executable.sh
 
 ## Start using WORDER
-./worder
+worder
 ```
 
 ## Usages
