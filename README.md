@@ -29,8 +29,6 @@ make setup
 source venv/bin/activate
 chmod +x ./build_executable.sh
 ./build_executable.sh
-
-## Start using WORDER
 worder
 ```
 
