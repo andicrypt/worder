@@ -24,9 +24,14 @@ __ChatGPT generated question, example and word root__
 ## Setup
 Requirement: Python (3.12.3), Pip (24.3.1)
 ```
+cd worder
 make setup
-source venv/bin/activate (For ubuntu only)
-make full2 (for example)
+source venv/bin/activate
+chmod +x ./build_executable.sh
+./build_executable.sh
+
+## Start using WORDER
+./worder
 ```
 
 ## Usages
