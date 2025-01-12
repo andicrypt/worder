@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import simpledialog, messagebox
 import random
 import argparse
 import re
@@ -7,9 +8,16 @@ import openai
 from dotenv import load_dotenv
 import os
 import epitran
+import sys
 
 
 load_dotenv()
+if getattr(sys, 'frozen', False):
+    # If running as a PyInstaller bundle
+    base_path = sys._MEIPASS
+else:
+    # If running as a script
+    base_path = os.path.dirname(__file__)
 
 
 # Flashcard App
@@ -35,7 +43,7 @@ class FlashcardApp:
         self.show_front()
 
     def setup_ui(self):
-        self.root.title("Flashcard App")
+        self.root.title("Worder")
         self.root.geometry("600x400")
 
         # Flashcard display
@@ -115,6 +123,12 @@ class FlashcardApp:
 
         # GPT word root
         self.root.bind("<Control-space>", self.show_word_root)
+
+        # Choose dataset
+        self.root.bind("<Control-p>", self.show_dataset_popup)
+
+        # Set Openai API KEY
+        self.root.bind("<Control-l>", self.set_api_key)
 
     def show_front(self):
         self.showing_back = False
@@ -296,7 +310,7 @@ class FlashcardApp:
 
     def save_gre_question_to_file(self, word, question):
         # Define the directory to save questions (adjust path as needed)
-        directory = os.path.join("questions")  # Adjust the directory as needed
+        directory = os.path.join(base_path, "questions")  # Adjust the directory as needed
         os.makedirs(directory, exist_ok=True)  # Create the directory if it doesn't exist
 
         # Define the file path
@@ -311,7 +325,7 @@ class FlashcardApp:
         word = card["word"]
 
         # Define the file path
-        directory = os.path.join("questions")  # Adjust the directory as needed
+        directory = os.path.join(base_path, "questions")  # Adjust the directory as needed
         file_path = os.path.join(directory, f"{word}.txt")
 
         # Read the file content or handle missing file
@@ -380,7 +394,7 @@ class FlashcardApp:
 
     def save_gre_example_to_file(self, word, example):
         # Define the directory to save examples
-        directory = os.path.join("examples")  # Adjust the directory as needed
+        directory = os.path.join(base_path, "examples")  # Adjust the directory as needed
         os.makedirs(directory, exist_ok=True)  # Create the directory if it doesn't exist
 
         # Define the file path
@@ -395,7 +409,7 @@ class FlashcardApp:
         word = card["word"]
 
         # Define the file path
-        directory = os.path.join("examples")  # Adjust the directory as needed
+        directory = os.path.join(base_path, "examples")  # Adjust the directory as needed
         file_path = os.path.join(directory, f"{word}.txt")
 
         # Read the file content or handle missing file
@@ -532,20 +546,70 @@ class FlashcardApp:
         # Bind the Esc key to close the popup
         popup.bind("<Escape>", lambda event: popup.destroy())
 
+    def show_dataset_popup(self, event=None):
+        datasets_path = os.path.join(base_path, "resources", "gre")
+        datasets = sorted([
+            os.path.splitext(name)[0] for name in os.listdir(datasets_path)
+            if os.path.isfile(os.path.join(datasets_path, name))
+        ])
+
+        dataset = simpledialog.askstring("Select Dataset", f"Available datasets: {', '.join(datasets)}\nEnter dataset name:")
+        if dataset in datasets:
+            path = f"resources/gre/{dataset}.ods"
+            self.load_flashcards(path)
+        else:
+            tk.messagebox.showerror("Error", "Invalid dataset name.")
+
+    def load_flashcards(self, path):
+        try:
+            data = pd.read_excel(path, engine="odf")
+            flashcards = []
+            for _, row in data.iterrows():
+                flashcard = {
+                    "word": row["Words"],
+                    "part_of_speech": row["Part of Speech"],
+                    "example": row["Examples"],
+                    "definition": row["Meanings"],
+                    "synonyms": row["Synonyms"]
+                }
+                flashcards.append(flashcard)
+
+            self.flashcards = flashcards
+            self.original_flashcards = list(flashcards)
+            self.index = 0
+            self.show_front()
+            tk.messagebox.showinfo("Success", f"Loaded {path} successfully!")
+        except Exception as e:
+            tk.messagebox.showerror("Error", f"Failed to load dataset: {e}")
+
+    def set_api_key(self, event=None):
+        # Show a popup to enter the API key
+        api_key = simpledialog.askstring("Set API Key", "Enter your OpenAI API key:")
+        if api_key:
+            # Save the API key to the .env file
+            with open(os.path.join(base_path, ".env"), "w") as env_file:
+                env_file.write(f"OPENAI_API_KEY={api_key}\n")
+            messagebox.showinfo("Success", "API key saved successfully!")
+            # Update the in-memory API key
+            openai.api_key = api_key
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Combine multiple ODS files and load flashcards.")
-    parser.add_argument("--path", nargs="+", required=True, help="Paths to the input ODS files (space-separated).")
+    parser.add_argument("--path", nargs="+", required=False, help="Paths to the input ODS files (space-separated).")
     args = parser.parse_args()
 
-    # Combine data from all provided ODS files
+    path = []
     combined_data = pd.DataFrame()
-    for path in args.path:
-        data = pd.read_excel(path, engine="odf")
-        combined_data = pd.concat([combined_data, data], ignore_index=True)
-
-    # Remove duplicates, prioritizing words from the first file (learnt.ods)
-    combined_data = combined_data.drop_duplicates(subset=["Words"], keep="first")
+    
+    if not args.path:
+        path = os.path.join(base_path, "resources/gre/full.ods")
+        combined_data = pd.read_excel(path, engine="odf")
+    else:
+        for path in args.path:
+            data = pd.read_excel(path, engine="odf")
+            combined_data = pd.concat([combined_data, data], ignore_index=True)
+    
 
     # Convert the combined data to flashcards
     flashcards = []

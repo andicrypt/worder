@@ -1,4 +1,4 @@
-.PHONY: setup full2 full3 full4 full5 full6 full7 full8 full9
+.PHONY: setup sub1 sub2 sub3 sub4 sub5 sub6 sub7 sub8 full
 
 # Path to the Python script
 PYTHON_SCRIPT := python3 main.py
@@ -11,30 +11,31 @@ setup:
 	@echo "Environment setup complete. Use 'source venv/bin/activate' to activate the virtual environment."
 
 
-# Rules for each full dataset
-full2:
-	$(PYTHON_SCRIPT) --path resources/gre/full2/full2_enhanced.ods
+# Rules for each sub dataset
 
-full3:
-	$(PYTHON_SCRIPT) --path resources/gre/full3/full3_enhanced.ods
+sub1:
+	$(PYTHON_SCRIPT) --path resources/gre/sub1.ods
 
-full4:
-	$(PYTHON_SCRIPT) --path resources/gre/full4/full4_enhanced.ods
+sub2:
+	$(PYTHON_SCRIPT) --path resources/gre/sub2.ods
 
-full5:
-	$(PYTHON_SCRIPT) --path resources/gre/full5/full5_enhanced.ods
+sub3:
+	$(PYTHON_SCRIPT) --path resources/gre/sub3.ods
 
-full6:
-	$(PYTHON_SCRIPT) --path resources/gre/full6/full6_enhanced.ods
+sub4:
+	$(PYTHON_SCRIPT) --path resources/gre/sub4.ods
 
-full7:
-	$(PYTHON_SCRIPT) --path resources/gre/full7/full7_enhanced.ods
+sub5:
+	$(PYTHON_SCRIPT) --path resources/gre/sub5.ods
 
-full8:
-	$(PYTHON_SCRIPT) --path resources/gre/full8/full8_enhanced.ods
+sub6:
+	$(PYTHON_SCRIPT) --path resources/gre/sub6.ods
 
-full9:
-	$(PYTHON_SCRIPT) --path resources/gre/full9/full9_enhanced.ods
+sub7:
+	$(PYTHON_SCRIPT) --path resources/gre/sub7.ods
 
-gre: 
-	$(PYTHON_SCRIPT) --path resources/gre/full/full.ods
+sub8:
+	$(PYTHON_SCRIPT) --path resources/gre/sub8.ods
+
+full: 
+	$(PYTHON_SCRIPT) --path resources/gre/full.ods
