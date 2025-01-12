@@ -1,7 +1,7 @@
 # WORDER
 Open-source flashcard source code, suitable for GRE test takers.
 
-Building vocabulary is essential part of test preparation, which take a lot of time. Understanding this painpoint, this open-source project aims to ameliorate this process by introducing digital flashcard written by Python. This source currently only supports for preparing [600 GRE words](https://www.youtube.com/watch?v=ztPuECxARHc&t=976s) organized by **The Test Tutor**, feel free to make contributions to broaden its usage to IELTS, TOEFL, GMAT or any standard testing.
+Building vocabulary is essential part of test preparation, which take a lot of time. Understanding this painpoint, this open-source project aims to ameliorate this process by introducing digital flashcard written by Python. This source currently only supports [600 GRE words](https://www.youtube.com/watch?v=ztPuECxARHc&t=976s) prepared by **The Test Tutor**, feel free to make contributions to broaden its usage to IELTS, TOEFL, GMAT or any standard testing.
 
 
 
@@ -12,10 +12,11 @@ __Demo__
     <img src="./assets/back.png" alt="Back" title="Back" width="300" />
 </div>
 
-__ChatGPT generated question and example__
+__ChatGPT generated question, example and word root__
 <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
     <img src="./assets/generated_example.png" alt="Generated example" title="Front" width="300" />
     <img src="./assets/generated_question.png" alt="Generated question" title="Back" width="300" />
+    <img src="./assets/generated_word_root.png" alt="Generated word root" title="Back" width="300" />
 </div>
 
 
@@ -36,8 +37,11 @@ make full2 (for example)
 | `Control + Q`        | Show usage example of the word          |
 | `Control + Z`        | Show GRE-like question for the word     |
 | `Control + F`        | Focus on search flashcard based on text |
-| `Enter`              | Search flashcard                       |
+| `Enter`              | Search flashcard                        |
+| **If you want to choose different dataset                      |
+| `Control + P`         | Choose different dataset                |
 | **If you have CHATGPT API KEY** |                              |
+| `Control + L`        | Enter OpenAI API KEY                    |
 | `Control + E`        | Generate new usage example of the word  |
 | `Control + G`        | Generate new GRE-like question          |
 | `Control + Space`    | Generate word root                      | 
